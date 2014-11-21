@@ -35,7 +35,7 @@ _.extend(StripeEasy, {
       if(response.error){
         console.log("STATUS: " + status);
         console.warn(response.error);
-        return alert(response.error);
+        return Session.set('stripeEasyError', response.error);
       } else {
         var token = response.id;
         Meteor.call("stripeEasySubscribe", token, plan_id, callback);
@@ -70,11 +70,12 @@ _.extend(StripeEasy, {
   }, //submitHelper
 
   configurable: {
-    inputClasses: "", //default, update to input-lg or input-sm  
+    inputClasses: '', //default, update to input-lg or input-sm
+    errorClasses: '', //default, add a custom class
   },
-  
 
-  // configure options: inputSize: 
+
+  // configure options: inputSize:
   config: function(obj){
     _.extend(StripeEasy.configurable, obj);
   }, //config
@@ -98,4 +99,3 @@ _.extend(StripeEasy, {
   }, //cancel
 
 });
-
