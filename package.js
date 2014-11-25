@@ -13,7 +13,7 @@ Package.onUse(function(api) {
   api.use('templating', 'client');
 
   var client = ['stripe_checkout.js', 'stripe_client.js', 'stripe_easy_client.js', 'stripe_easy_inputs.html', 'stripe_easy_inputs.js'];
-  var server = ['stripe_easy_server.js'];
+  var server = ['stripe_easy_server.js', 'stripe_easy_server_info.js'];
 
   api.addFiles(client, 'client');
   api.addFiles(server, 'server');
